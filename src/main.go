@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/fsnotify/fsnotify"
 )
 
 func main() {
-	path, err := getPath()
-	if err != nil {
-		fmt.Println(err)
+	if len(os.Args) == 1 {
+		helpMenu()
 		return
 	}
+
+	path := os.Args[1]
 
 	fmt.Print(path)
 
